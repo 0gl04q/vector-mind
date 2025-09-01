@@ -7,7 +7,17 @@ from .model import ChromaConfig, SimilaritySearch
 
 
 class ChromaStore:
+    """
+    Класс ChromaStore предоставляет адаптер для работы с хранилищем Chroma,
+    включая инициализацию и выполнение поиска по схожести.
+    """
+
     def __init__(self, config: ChromaConfig):
+        """
+        Инициализирует объект ChromaStore с заданной конфигурацией.
+
+        :param config: Экземпляр ChromaConfig, содержащий параметры конфигурации хранилища.
+        """
         self.config = config
 
         embeddings = HuggingFaceEmbeddings(
@@ -23,6 +33,13 @@ class ChromaStore:
         )
 
     async def similarity_search(self, params: SimilaritySearch) -> list:
+        """
+        Выполняет поиск по схожести в хранилище Chroma.
+
+        :param params: Экземпляр SimilaritySearch, содержащий параметры поиска.
+        :return: Список результатов поиска.
+        :raises Exception: В случае возникновения ошибки при выполнении поиска.
+        """
         try:
             if params.with_score:
                 results = self._store.similarity_search_with_score(params.query, k=params.k, filter=params.filters)
