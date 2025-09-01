@@ -1,0 +1,3 @@
+CPU_DEVICE = "cpu"
+CUDA_DEVICE = "cuda"
+BASE_EMBEDDING_MODEL = "BAAI/bge-m3"
