@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.env
+*.venv
+env/
+venv/
+ENV/
+build/
+dist/
+*.egg-info/
+*.egg
+
+# PyCharm
+.idea/
+*.iml
+
+# OS
+.DS_Store
+
+# Тесты
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
